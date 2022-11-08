@@ -1,0 +1,15 @@
+D:\C#\Study\bin\Debug\net6.0\Study.exe
+D:\C#\Study\bin\Debug\net6.0\Study.deps.json
+D:\C#\Study\bin\Debug\net6.0\Study.runtimeconfig.json
+D:\C#\Study\bin\Debug\net6.0\Study.dll
+D:\C#\Study\bin\Debug\net6.0\Study.pdb
+D:\C#\Study\obj\Debug\net6.0\Study.csproj.AssemblyReference.cache
+D:\C#\Study\obj\Debug\net6.0\Study.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\Study\obj\Debug\net6.0\Study.AssemblyInfoInputs.cache
+D:\C#\Study\obj\Debug\net6.0\Study.AssemblyInfo.cs
+D:\C#\Study\obj\Debug\net6.0\Study.csproj.CoreCompileInputs.cache
+D:\C#\Study\obj\Debug\net6.0\Study.dll
+D:\C#\Study\obj\Debug\net6.0\refint\Study.dll
+D:\C#\Study\obj\Debug\net6.0\Study.pdb
+D:\C#\Study\obj\Debug\net6.0\Study.genruntimeconfig.cache
+D:\C#\Study\obj\Debug\net6.0\ref\Study.dll
