@@ -1,0 +1,1 @@
+định dạng dữ liệu của API, có 2 phần khóa và giá trị, giá trị có thể là đối tượng

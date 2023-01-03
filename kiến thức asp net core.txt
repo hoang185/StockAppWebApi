@@ -1,0 +1,4 @@
+dbcontext: là cầu nối giữa các lớp thực thể và cơ sở dữ liệu, chịu trách nhiệm tương tác với dữ liệu
+  + truy vấn
+  + quản lý mối quan hệ
+  + ánh xạ đối tượng

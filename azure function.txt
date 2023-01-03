@@ -1,0 +1,3 @@
+- azure function là một dịch vụ đám mây được cung cấp sẵn tất cả tài nghuyên và xơ sở hạ tầng để chạy function trên cloud.
+- hỗ trỡ nhiều ngôn ngữ
+- nhiều loại trigger : khi dữ liệu thay đổi, phản hồi message, task scheduler, kết quả của http request

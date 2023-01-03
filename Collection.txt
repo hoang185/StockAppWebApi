@@ -1,0 +1,11 @@
+1.arraylist :quản lý phần tử theo index - giống mảng nhưng có thể thêm xóa phần tử , điều chỉnh kích cỡ tự động
+2. Hashtable: lưu trữ dữ liệu theo cặp key value, gán giá trị 1 key k tồn tại thì nó sẽ tự động add mới 1 cặp key value. 
+hashtable.Add(key, value) <=> hashtable[key] = value
+3. SortedList: là sự kết hợp của arraylist và hashtable, lưu trữ dạng key value, được sắp xếp tự động theo key. có thể truy xuất thông
+qua chỉ số index
+4. Stack: lưu trữ theo nguyên lý LIFO (last in first out) (1 cấu trúc dữ liệu), lấy và xóa, push and pop. Không thể truy cập phần tử theo index 
+5. Queue: lưu trữ theo nguyên lý FIFO (first in first out) , xếp hàng (enqueue), lấy ra khỏi hàng (dequeue) (lấy được phần tử được thêm vào đầu tiên). 
+Không thể truy cập phần tử theo index 
+6. Bitarray: một collection giúp quản lý lưu trữ các bit, đối tượng kiểu bool. Có thể truy cập các phần tử thông qua chỉ số như arraylist
+dùng bitarray ít tốn bộ nhớ hơn array thường vì mỗi phần tử của bitarray chiếm 1bit còn array chiếm 1bytes. 1bytes = 8 bit
+7. Generic : cho phép tạo hàm lớp mà không quan tâm kiểu dữ liệu là gì

@@ -1,0 +1,24 @@
+1. Nắm vững kiến thức về C#, OOP, kế thừa, đa hình, Generic Collection, Linq
+2. Hiểu cách ứng dụng web vận hành, webserver, browser, giao thức HTTP, Javascript, CSS, Jquery ...
+3. Kiến trúc MVC, cách truyền dữ liệu từ browser vào controller, từ controller ra model để ánh xạ vào view. Chu trình sống của các dịch vụ, Dependency Injection.
+4. Tìm hiểu về cơ sở dữ liệu và ORM (EF, Dapper ...)
+5. Cách implement các cơ chế xác thực và phân quyền
+
+1.OOP
+a.Tính trừu tượng
+-sử dụng interface và abstract class chính là cách thể hiện tính trừu tượng trong lập trình hướng đối tượng.
+b.Tính kế thừa
+-Cáp phát vùng nhớ cho đối tượng: Animal cat = new Cat();
+ + một đối tượng lớp cha có thể tham chiếu đến vùng nhớ của lớp con nhưng ngược lại thì không
+c.Tính đóng gói
+d.Tính đa hình
+-Các đối tượng thuộc các lớp khác nhau nhưng hiểu cùng 1 thông điệp theo cách khác nhau
+-Ví dụ: 3 con vật chó , mèo , gà cùng kế thừa lớp động vật và phương thức kêu nhưng thực hiện khác nhau
+-Thể hiện:
+ + Các lớp phải cùng kế thừa chung 1 class nào đó
+ + Phương thức đa hình phải được ghì đè ở các lớp con
+- Virtual và Override 
+ + virtual là khai báo phương thức ảo, có thể ghì đề được còn override dùng để đánh dấu phương thức ghì đè lên phương thức của cha (nếu k khai báo thì sẽ
+   k thể ghì đè được và k báo lỗi)
+ + chỉ có thể override được 2 phương thức virtual và abstract
+- Abstract class: chỉ khai báo mà k định nghĩa, class thừa kế sẽ định nghĩa lại(sử dụng từ khóa override để đúng cú pháp)
