@@ -1,0 +1,2 @@
+quote : 7 days
+remove logic : hide target completion date when quote

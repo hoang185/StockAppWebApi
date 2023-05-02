@@ -7,7 +7,13 @@
 1.OOP
 a.Tính trừu tượng
 -sử dụng interface và abstract class chính là cách thể hiện tính trừu tượng trong lập trình hướng đối tượng.
+- sự khác nhau giữa interface và abstract class:
+  +abstract class thì là được thiết kế thành 1 class hoàn chỉnh còn interface thì là chi tiết của 1 method
+  + ví dụ: khai báo 1 abstract class person thì các class teacher , student có thể implement nó nhưng tính chất riêng thì tự khai báo thêm , ngoài 
+  những tính chất chung thì có thể khai báo thêm function riêng
 b.Tính kế thừa
+- cho phép 1 class thừa kế và sử dụng những thuộc tính , phương thức từ class khác. có thể tái sử dụng và dễ maintain
+- tamgiaccan thừa kế đặc điểm của 1 tam giác thường
 -Cáp phát vùng nhớ cho đối tượng: Animal cat = new Cat();
  + một đối tượng lớp cha có thể tham chiếu đến vùng nhớ của lớp con nhưng ngược lại thì không
 c.Tính đóng gói

@@ -1,35 +1,113 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 using Study.Processor;
+using System.Threading;
+
 
 public class FirstClass
 {
     public static void Main(string[] args)
     {
+        string str = "hello2";
+        Console.WriteLine(str.LastOrDefault());
+        if ("sd2ld".Contains(str.LastOrDefault()))
+            Console.WriteLine("true");
+        List<int> ints = new List<int>();
+        int sum = ints.Sum();
+
+        DemoThread("sd");
+        Thread t = new Thread(() =>
+        {
+            DemoThread("thread1");
+        });
+        t.Start();
+        Thread t2 = new Thread(() =>
+        {
+            DemoThread("thread2");
+        });
+        t2.Start();
+        Thread t3 = new Thread(() =>
+        {
+            DemoThread("thread3");
+        });
+        t3.Start();
+        Console.ReadLine();
         //test git fetch
-        int[] arr = new int[7] {7, 6, 5, 3, 1, 4, 7};
-        int i = 3;
-        int j = 3;
-       
+        #region stack issue
+        int[] arr = new int[7] { 2, 1, 3, 2, 8, 5, 7 };
+        int[] res = new int[7];
+        Stack<int> stack = new Stack<int>();
+        stack.Push(0);
+        res[0] = -1;
+        int flag = -1;
+        Console.Write(res[0] + ", ");
+        for (int i = 1; i < arr.Length; i++)
+        {
+            if (arr[i - 1] > arr[i])
+            {
+                stack.Push(i);
+                res[i] = i - 1;
+            }
+            else
+            {
+                while (stack.Count > 0 && arr[stack.Peek()] < arr[i])
+                {
+                    stack.Pop();
+                }
+                if (stack.Count > 0)
+                {
+                    res[i] = stack.Peek();
+                }
+                else
+                {
+                    stack.Push(i);
+                    res[i] = -1;
+                }
+            }
+            Console.Write(res[i] + ", ");
+        }
+        #endregion
+
+        #region comment
+        //int i = 3;
+        //int j = 3;
+        Student stu = new Student();
+        string per1 = stu.getName();
+        string per2 = stu.getName();
+        if (per1 == per2)
+        {
+            Console.WriteLine("pass");
+        }
+        else
+        {
+            Console.WriteLine("failed");
+        }
+
+        foreach (int item in res)
+        {
+            Console.Write(item + ", ");
+        }
         //for (int i = 0; i < arr.Length; i++)
         //{
         //    Console.WriteLine(arr[i]);
         //}
-        AmericanEngine ae = new AmericanEngine();
-        Car car = new Car("Mercedes", ae);
-        ArrayList arrList = new ArrayList(arr);
-        Hashtable hashtable = new Hashtable();
-        SortedList sortedList = new SortedList();
-        sortedList.Add("h", "hash");
-        sortedList["b"] = "bb";
-        
-        sortedList.Add("t", "table");
+        //AmericanEngine ae = new AmericanEngine();
+        //Car car = new Car("Mercedes", ae);
+        //ArrayList arrList = new ArrayList(arr);
+        //Hashtable hashtable = new Hashtable();
+        //SortedList sortedList = new SortedList();
+        //sortedList.Add("h", "hash");
+        //sortedList["b"] = "bb";
 
-        sortedList["a"] = "aaaa";
-        Stack stack = new Stack(arrList);
-        stack.Push("education");
-        stack.Push("kteam");
+        //sortedList.Add("t", "table");
+
+        //sortedList["a"] = "aaaa";
+        //Stack stack = new Stack(arrList);
+        //stack.Push("education");
+        //stack.Push("kteam");
         //int length = stack.Count;
         //for (int i = 0; i < stack.Count; i++)
         //{
@@ -46,6 +124,7 @@ public class FirstClass
         int second = 4;
         //first = Swap(first, second);
         //Console.WriteLine("first : " + first);
+        #endregion
     }
     public static int Swap(int a, int b)
     {
@@ -54,27 +133,16 @@ public class FirstClass
         b = i;
         return a;
     }
-    public class Student : Person
+
+    public static void DemoThread(string str)
     {
-        private string _name;
-        public Student(string name)
+        for (int i = 0; i < 5; i++)
         {
-            _name = name;
-        }
-        public void Study()
-        {
-            Console.WriteLine("the student is studying");
-        }
-        public void Speak()
-        {
-            Console.WriteLine("Student is doing...");
-        }
-    }
-    public class Teacher : Person
-    {
-        public void Speak()
-        {
-            Console.WriteLine("Teacher is doing...");
+            Thread.Sleep(TimeSpan.FromSeconds(1));
+            Console.WriteLine(str + " - " + i);
         }
     }
 }
+
+
+

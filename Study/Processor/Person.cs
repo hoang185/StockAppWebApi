@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace Study.Processor
 {
-    interface Person
+    public class Student
     {
-        void Speak();
+        private static string _name;
+        public Student()
+        {
+        }
+        public string getName()
+        {
+            if (_name == null)
+                _name = "test";
+
+            return _name;
+        }
     }
 }

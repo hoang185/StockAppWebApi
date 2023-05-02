@@ -1,0 +1,9 @@
+ưu điểm:
++ dễ scaleup, maintain
++ áp dụng công nghệ mới , 
++ 1 service sập sẽ không ảnh hưởng toàn hệ thống, 
++ cho phép các team làm việc độc lập với nhau
++ dễ test hơn
+nhược điểm :
++ tốc độ chậm hơn
++ cần kĩ thuật chuyên môn cao để thiết kế kiến trúc này vì triển khai phức tạp hơn

@@ -1,0 +1,18 @@
+group parent property 
+given name : tenant name
+room, days : remove
+date (tenancy transaction detail) on or before as at date => amount = balance rent < 0
+last 5 arrears : arrear arrangement (type = rent, start date - frequency - total arrear)
+last 5 notes : note in tenancy - title
+
+<fetch>
+  <entity name='zav_rentinarrearsasatdate' >
+    <all-attributes />
+    <filter type='and' >
+      <condition attribute='zav_parameterarreardate' operator='eq' value='@ArrearDate' />
+      <condition attribute='zav_parameterarrearstatus' operator='in' value='@TenancyStatus' />
+      <condition attribute='zav_parameterprogram' operator='in' value='@Program' />
+      <condition attribute='zav_parametertenancymanager' operator='in' value='@TenancyManager' />
+    </filter>
+  </entity>
+</fetch>
