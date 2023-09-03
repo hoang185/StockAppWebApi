@@ -11,11 +11,18 @@ public class FirstClass
 {
     public static void Main(string[] args)
     {
+        StayHomeDelegate stayHome = new StayHomeDelegate(StayHome);
+        GiveGift(stayHome);
+        #region comment
+
+        Student std = new Student();
+        string str1 = std.GetName();
         string str = "hello2";
         Console.WriteLine(str.LastOrDefault());
         if ("sd2ld".Contains(str.LastOrDefault()))
             Console.WriteLine("true");
         List<int> ints = new List<int>();
+        int _1 = ints.Where(x => x > 0).Count();
         int sum = ints.Sum();
 
         DemoThread("sd");
@@ -23,16 +30,16 @@ public class FirstClass
         {
             DemoThread("thread1");
         });
-        t.Start();
         Thread t2 = new Thread(() =>
         {
             DemoThread("thread2");
         });
-        t2.Start();
         Thread t3 = new Thread(() =>
         {
             DemoThread("thread3");
         });
+        t.Start();
+        t2.Start();
         t3.Start();
         Console.ReadLine();
         //test git fetch
@@ -71,12 +78,11 @@ public class FirstClass
         }
         #endregion
 
-        #region comment
         //int i = 3;
         //int j = 3;
         Student stu = new Student();
-        string per1 = stu.getName();
-        string per2 = stu.getName();
+        string per1 = stu.GetName();
+        string per2 = stu.GetName();
         if (per1 == per2)
         {
             Console.WriteLine("pass");
@@ -126,6 +132,16 @@ public class FirstClass
         //Console.WriteLine("first : " + first);
         #endregion
     }
+    public static void GiveGift(StayHomeDelegate stayHome)
+    {
+        StayHome("Done 1");
+        stayHome("Done 2");
+    }
+    public static void StayHome(string wish)
+    {
+        Console.WriteLine("Give the gift with the wish: " + wish);
+    }
+    public delegate void StayHomeDelegate(string str);
     public static int Swap(int a, int b)
     {
         int i = a;
@@ -142,7 +158,9 @@ public class FirstClass
             Console.WriteLine(str + " - " + i);
         }
     }
+    
 }
+
 
 
 

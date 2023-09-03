@@ -1,0 +1,15 @@
+1.1 Sự khác nhau Authentication và Authorization
+-Authentication là xác thực người dùng , thông tin đăng nhập của user có đúng hay không
+-Authorization là ủy quyền, chỉ định cho user được sử dụng nguồn tài nguyên nào của hệ thống.
+
+2. Các phương thực xác thực
+
+2.1 Phương thức basic
+-User sẽ gửi username,password (được mã hóa dưới dạng base64) của mình trong header của request 
+* Ưu điểm: 
++ Dễ triển khai, thực hiện được trên mọi trình duyệt
+* Nhược điểm:
++ Không được khuyến khích sử dụng vì bảo mật kém, dễ bị giải mã
++ Phải gửi xác thực trong mỗi request
+2.2 Session-Cookie
+ 

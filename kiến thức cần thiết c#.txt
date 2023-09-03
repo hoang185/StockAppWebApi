@@ -27,4 +27,4 @@ d.Tính đa hình
  + virtual là khai báo phương thức ảo, có thể ghì đề được còn override dùng để đánh dấu phương thức ghì đè lên phương thức của cha (nếu k khai báo thì sẽ
    k thể ghì đè được và k báo lỗi)
  + chỉ có thể override được 2 phương thức virtual và abstract
-- Abstract class: chỉ khai báo mà k định nghĩa, class thừa kế sẽ định nghĩa lại(sử dụng từ khóa override để đúng cú pháp)
+- Abstract class: chỉ khai báo và có thể định nghĩa hoặc không, class thừa kế sẽ định nghĩa lại(sử dụng từ khóa override để đúng cú pháp)
