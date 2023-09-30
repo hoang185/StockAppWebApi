@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "HIoLL/tZUBbGYx77VujVVOLiy0TwQEKgNx0K0FN4m22R7meaa6AN2NPgbWG6PlMPPDiUKQy713h0ek3MBiyP5w==",
+  "dgSpecHash": "tAXFgFjtkPjzEX26xRjL2OCH4LWv35sesSQwS66f1EDT8cLHQ9NsgDn0ZB7dCwpfEfoYbeCdXlaMYZKD+KxOPw==",
   "success": true,
   "projectFilePath": "D:\\C#\\StockAppWebApi\\StockAppWebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.11\\microsoft.aspnetcore.authentication.jwtbearer.7.0.11.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.8\\microsoft.aspnetcore.openapi.7.0.8.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

@@ -1,5 +1,7 @@
 ﻿using StockAppWebApi.Models;
 using StockAppWebApi.Repositories;
+using StockAppWebApi.ViewModels;
+using System.Reflection.Metadata.Ecma335;
 
 namespace StockAppWebApi.Services
 {
@@ -10,22 +12,25 @@ namespace StockAppWebApi.Services
         {
             _userRepository = userRepository;
         }
-
-        public async Task<User> CreateAsync(User user)
+        public async Task<string> Login(LoginViewModel loginViewModel)
         {
-            var existingUserByUsername = _userRepository.GetByUsername(user.Username);
+            return await _userRepository.Login(loginViewModel);
+            //return loginViewModel != null ? await _userRepository.Login(loginViewModel) :  string.Empty ;
+        }
+        public async Task<User?> CreateAsync(RegisterViewModel registerViewModel)
+        {
+            var existingUserByUsername = await _userRepository.GetByUsername(registerViewModel.Username ?? "");
             if (existingUserByUsername != null)
             {
                 throw new ArgumentException("Username already exists");
             }
-            var existingUserByEmail = _userRepository.GetByEmail(user.Email);
+            var existingUserByEmail = await _userRepository.GetByEmail(registerViewModel.Email ?? "");
             if (existingUserByEmail != null)
             {
                 throw new ArgumentException("Email already exists");
             }
-            var hashPassword = BCrypt.Net.BCrypt.HashPassword(user.HashedPassword);
-            user.HashedPassword = hashPassword;
-            throw new NotImplementedException();
+
+            return await _userRepository.Create(registerViewModel);
         }
     }
 }

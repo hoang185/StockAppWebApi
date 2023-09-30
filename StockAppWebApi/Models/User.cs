@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StockAppWebApi.Models
 {
-    [Table("user")]
+    [Table("users")]
     public class User
     {
         [Key]
@@ -13,7 +13,7 @@ namespace StockAppWebApi.Models
         [Required(ErrorMessage = "The username is required.")]
         [MinLength(3,ErrorMessage = "Min length is 3 characters")]
         [MaxLength(100)]
-        [Column("user_name")]
+        [Column("username")]
         public required string Username
         {
             get;
