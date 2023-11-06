@@ -1,4 +1,5 @@
-﻿using StockAppWebApi.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using StockAppWebApi.Models;
 using StockAppWebApi.Repositories;
 using StockAppWebApi.ViewModels;
 using System.Reflection.Metadata.Ecma335;
@@ -12,10 +13,9 @@ namespace StockAppWebApi.Services
         {
             _userRepository = userRepository;
         }
-        public async Task<string> Login(LoginViewModel loginViewModel)
+        public async Task<string?> Login(LoginViewModel loginViewModel)
         {
             return await _userRepository.Login(loginViewModel);
-            //return loginViewModel != null ? await _userRepository.Login(loginViewModel) :  string.Empty ;
         }
         public async Task<User?> CreateAsync(RegisterViewModel registerViewModel)
         {
@@ -31,6 +31,11 @@ namespace StockAppWebApi.Services
             }
 
             return await _userRepository.Create(registerViewModel);
+        }
+        public async Task<User?> GetUserById(int userId)
+        {
+            User? user = await _userRepository.GetById(userId);
+            return user;
         }
     }
 }

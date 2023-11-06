@@ -7,6 +7,7 @@ namespace StockAppWebApi.Models
     public class User
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("user_id")]
         public int UserId { get; set; }
 
@@ -38,6 +39,8 @@ namespace StockAppWebApi.Models
         public DateTime? DateOfBirth { get; set; }
         [Column("country")]
         public required string Country { get; set; }
+
+        public ICollection<WatchList>? WatchLists { get; set; }
     }
 
 }

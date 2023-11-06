@@ -1,0 +1,3 @@
+-Thread chỉ bắt đầu chạy khi bạn gọi hàm Start.
+- IsBackground: set thread đó là luồng phụ (background) thì khi nào luồng chính hoàn thành thì nó cũng sẽ bị dừng theo.
+mặc định set thuộc tính này = false

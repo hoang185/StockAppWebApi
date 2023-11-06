@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using StockAppWebApi.Models;
@@ -15,8 +15,15 @@ builder.Services.AddControllers();
 var settings = builder.Configuration.GetRequiredSection("ConnectionStrings");//read data from appsettings.json
 builder.Services.AddDbContext<StockAppContext>(options => options.UseSqlServer(settings["DefaultConnection"]));
 
+//addtransisent: một instance mới được tạo mỗi lần yêu cầu sử dụng
+//addscoped: được tạo cho mỗi lần yêu cầu HTTP
+//addsingleton: một instance được tạo duy nhất cho toàn ứng dụng
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();    
+builder.Services.AddScoped<IWatchListRepository, WatchListRepository>();    
+builder.Services.AddScoped<IWatchListService, WatchListService>();    
+builder.Services.AddScoped<IStockRepository, StockRepository>();    
+builder.Services.AddScoped<IStockService, StockService>();    
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

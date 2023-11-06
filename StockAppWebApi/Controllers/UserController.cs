@@ -35,7 +35,7 @@ namespace StockAppWebApi.Controllers
         {
             try
             {
-                string jwtToken = await _userService.Login(loginViewModel);
+                string? jwtToken = await _userService.Login(loginViewModel);
                 return Ok(new { jwtToken });
             }
             catch (ArgumentException ex)
