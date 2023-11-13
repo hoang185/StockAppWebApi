@@ -5,6 +5,8 @@ using StockAppWebApi.Services;
 using StockAppWebApi.Filters;
 using System.Security.Claims;
 using StockAppWebApi.Repositories;
+using StockAppWebApi.Attributes;
+using StockAppWebApi.Extensions;
 
 namespace StockAppWebApi.Controllers
 {
@@ -14,13 +16,10 @@ namespace StockAppWebApi.Controllers
     {
         private readonly IUserService _userService;
         private readonly IStockService _stockService;
-        private readonly AuthorizationFilterContext _context;
         private readonly IWatchListService _watchlistService;
 
-        public WatchListController(IUserService userService, IStockService stockService, IWatchListService watchlistService
-            , AuthorizationFilterContext context)
+        public WatchListController(IUserService userService, IStockService stockService, IWatchListService watchlistService)
         {
-            _context = context;
             _userService = userService;
             _stockService = stockService;
             _watchlistService = watchlistService;
@@ -30,10 +29,8 @@ namespace StockAppWebApi.Controllers
         [JwtAuthorize]
         public async Task<IActionResult> AddStockToWatchlist(int stockId)
         {
-            if (!int.TryParse(_context.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value, out var userId))
-            {
-                return Unauthorized();
-            }
+            int userId = HttpContext.GetUserId();
+           
             var user = await _userService.GetUserById(userId);
             var stock = await _stockService.GetStockById(stockId);
             if (user == null)

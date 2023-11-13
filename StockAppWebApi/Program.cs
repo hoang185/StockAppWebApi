@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using StockAppWebApi.Attributes;
 using StockAppWebApi.Models;
 using StockAppWebApi.Repositories;
 using StockAppWebApi.Services;
@@ -23,10 +24,14 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IWatchListRepository, WatchListRepository>();    
 builder.Services.AddScoped<IWatchListService, WatchListService>();    
 builder.Services.AddScoped<IStockRepository, StockRepository>();    
-builder.Services.AddScoped<IStockService, StockService>();    
+builder.Services.AddScoped<IStockService, StockService>();
+
+builder.Services.AddScoped<JwtAuthorizeAttribute>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAuthentication();
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

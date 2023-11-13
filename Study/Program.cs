@@ -11,6 +11,13 @@ public class FirstClass
 {
     public static void Main(string[] args)
     {
+        string nullString = null;
+        string emptyString = "";
+
+        Console.WriteLine(nullString == null);    // true
+        Console.WriteLine(emptyString == null);   // false
+        Console.WriteLine(nullString == "");      // true
+        Console.WriteLine(emptyString == "");
         StayHomeDelegate stayHome = new StayHomeDelegate(StayHome);
         GiveGift(stayHome);
         #region comment
