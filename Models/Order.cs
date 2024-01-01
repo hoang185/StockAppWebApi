@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StockAppWebApi.Models
 {
+    //test
     [Table("orders")]
     public class Order
     {
