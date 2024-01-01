@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    //const socket = new WebSocket('wss://localhost:7294/api/ws');
+    //socket.onopen = () => {
+    //    debugger
+    //    console.log('Connected to the server via websocket');
+    //};
+
+    //socket.onmessage = (event) => {
+    //    debugger
+    //    const data = JSON.parse(event.data);
+    //    const x = data.x ?? 0;
+    //    const y = data.y ?? 0;
+    //    console.log(`x= ${x}, y = ${y}`);
+    //    document.getElementById('x-value').innerText = `X: ${x}`;
+    //    document.getElementById('y-value').innerText = `X: ${y}`;
+    //};
+    const page = 1;
+    const limit = 10;
+    const socket = new WebSocket(`wss://localhost:7294/api/quote/ws?page=${page}&limit=${limit}`);
+    socket.onopen = () => {
+        debugger
+        console.log('Connected to the server via websocket');
+    };
+    socket.onmessage = (event) => {
+        debugger
+        const quotes = JSON.parse(event.data);
+
+        var tableBody = document.getElementById("table-body");
+        while (tableBody.firstChild != null) {
+            tableBody.removeChild(tableBody.firstChild);
+        }
+
+        quotes.forEach(function (quote) {
+            debugger;
+            var row = document.createElement("tr");
+
+            var quoteIdCell = document.createElement("td");
+            quoteIdCell.textContent = quote.quoteId;
+            row.appendChild(quoteIdCell);
+
+            var symbolCell = document.createElement("td");
+            symbolCell.textContent = quote.Symbol;
+            row.appendChild(symbolCell);
+
+            var companyNameCell = document.createElement("td");
+            companyNameCell.textContent = quote.CompanyName;
+            row.appendChild(companyNameCell);
+
+            var indexNameCell = document.createElement("td");
+            indexNameCell.textContent = quote.IndexName;
+            row.appendChild(indexNameCell);
+
+            var indexSymbolCell = document.createElement("td");
+            indexSymbolCell.textContent = quote.IndexSymbol;
+            row.appendChild(indexSymbolCell);
+
+            var marketCapCell = document.createElement("td");
+            marketCapCell.textContent = quote.MarketCap;
+            row.appendChild(marketCapCell);
+
+            var sectorCell = document.createElement("td");
+            sectorCell.textContent = quote.SectorEn;
+            row.appendChild(sectorCell);
+
+            tableBody.appendChild(row);
+        });
+    };
+    socket.onclose = () => {
+        console.log("Connection closed");
+    }
+</script>
+<body>
+    <h1>Test websocket</h1>
+    <!--<p id="x-value"></p>
+    <p id="y-value"></p>-->
+    <table id="table-body">
+        
+    </table>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+            table td {
+                border: 1px solid black;
+                padding: 8px;
+            }
+    </style>
+</body>
+</html>
+
