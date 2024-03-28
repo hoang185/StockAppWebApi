@@ -42,6 +42,7 @@ namespace StockAppWebApi.Repositories
             //dùng procedure
             string sql = "execute dbo.CheckLogin @email, @password";
 
+            var lstUsers = await _context.Users.ToListAsync();
             IEnumerable<User> result = await _context.Users.FromSqlRaw(sql,
                 new SqlParameter("@email", loginViewModel.Email),
                 new SqlParameter("@password", loginViewModel.Password)).ToListAsync();
